@@ -1,0 +1,213 @@
+
+
+## about the app
+
+    1. The app allows a potential customer to sign up to the waiting list
+    with his email address. (he will see a screen with an email address)
+
+    2. As soon as he signs up, his position in the waiting list will be
+    displayed. (The first customer gets the default number of 99. When
+    the next customer signs up, his waiting list position is 100)
+
+    3. Once he signed up for the waiting list, he will get a unique referral link
+
+    4. He can share this link to his friends.
+
+    5. If their friends sign up using his referral link, he will “move up” by 1
+    place in his position (Example: John has joined the wait list at position:
+
+    6. He referred 10 of his friends. When they joined, John’s position
+    will go to 110)
+
+    7. Once a customer reaches Position 1, he will receive an email with a
+    coupon code to purchase the new product.
+
+## Implementing the app
+
+    1. Registration with email
+
+    2. Creating session with JWT on Login 
+
+    3. OTP email verificatoin, 
+
+    4. Joint the queu for iphone with or withour a referral 
+
+    5. Realtime queu update with sockiet io for all the users 
+    when a new users enter the room 
+
+    6. Nodemailer email notification when user reached #1 position in the queue
+
+
+## instalation
+
+# Backend
+
+npm
+to install node modules: npm install  
+to start the backend use: npm run start || nodemon server.js || node server.js
+
+environment variable requirements:
+
+# HTTP port
+
+HTTP_PORT=any prot number example 8000
+
+# connection with monogo db atlas
+
+MONGO_URL=mongodb://127.0.0.1:27017/waitlist-app2
+
+# JWT
+
+JWT_SECTET= secret
+
+# nodemailer create a app password for your backend
+
+EMAIL=development.youremail@gmail.com
+PASSWORD= google app password
+
+
+
+## Frontend
+
+npm
+to install node modules: npm install
+to start the react app: npm start
+
+## env requirements for front end
+
+REACT_APP_BASE_URL=http://localhost:8000 or your backend end hosted url
+
+
+
+
+OTP Schema
+
+ [ {
+    "_id": {
+      "$oid": "64319b9be50d89b193a9de10"
+    },
+    "email": "shreesanjairpa@gmail.com",
+    "otp": {
+      "$numberInt": "6693"
+    },
+    "expireAt": {
+      "$date": {
+        "$numberLong": "1680971135538"
+      }
+    },
+    "createdAt": {
+      "$date": {
+        "$numberLong": "1680972699620"
+      }
+    },
+    "updatedAt": {
+      "$date": {
+        "$numberLong": "1680972699620"
+      }
+    },
+    "__v": {
+      "$numberInt": "0"
+    }
+  }
+]
+
+
+
+## Room schema
+
+{
+  "_id": {
+    "$oid": "668d69d415ba79e7cf2ceaa5"
+  },
+  "name": "LeaderBoard",
+  "users": [
+    {
+      "user": {
+        "$oid": "668d69af15ba79e7cf2cea9a"
+      },
+      "position": {
+        "$numberInt": "90"
+      },
+      "_id": {
+        "$oid": "6431988ce50d89b193a9ddaa"
+      }
+    },
+    {
+      "user": {
+        "$oid": "6431983be50d89b193a9dd9a"
+      },
+      "position": {
+        "$numberInt": "100"
+      },
+      "_id": {
+        "$oid": "643198e5e50d89b193a9ddc5"
+      }
+    },
+    {
+      "user": {
+        "$oid": "6431992ae50d89b193a9ddd5"
+      },
+      "position": {
+        "$numberInt": "100"
+      },
+      "_id": {
+        "$oid": "64319972e50d89b193a9ddec"
+      }
+    },
+    {
+      "user": {
+        "$oid": "64319b68e50d89b193a9de06"
+      },
+      "position": {
+        "$numberInt": "100"
+      },
+      "_id": {
+        "$oid": "64319befe50d89b193a9de2c"
+      }
+    }
+  ],
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1680971915901"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1680972783278"
+    }
+  },
+  "__v": {
+    "$numberInt": "0"
+  }
+}
+
+
+## User schema
+
+{
+  "_id": {
+    "$oid": "668d69af15ba79e7cf2cea9a"
+  },
+  "name": "arun prasathd",
+  "email": "arundg2001@gmail.com",
+  "password": "pass",
+  "verified": true,
+  "joinedRoom": true,
+  "winner": false,
+  "referralCode": "3RJRYV",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1680971784568"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1680971915762"
+    }
+  },
+  "__v": {
+    "$numberInt": "0"
+  }
+}
+
+## schema diagram
