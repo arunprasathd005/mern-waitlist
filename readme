@@ -1,3 +1,10 @@
+# MERN Waitlist Application
+
+### Home Page
+<!-- Adjust the width to 500px -->
+<img src="./creenshots/home%20page.png"/>
+
+
 
 
 ## about the app
@@ -210,4 +217,3 @@ OTP Schema
   }
 }
 
-## schema diagram
